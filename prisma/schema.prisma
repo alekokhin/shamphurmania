@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  email          String   @unique
+  hashedPassword String
+  name           String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Category {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  nameEn      String?
+  slug        String    @unique
+  description String?
+  image       String?
+  order       Int       @default(0)
+  isActive    Boolean   @default(true)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Brand {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String    @unique
+  slug        String    @unique
+  logo        String?
+  description String?
+  website     String?
+  isActive    Boolean   @default(true)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+type ProductImage {
+  publicId String
+  url      String
+  alt      String?
+  width    Int
+  height   Int
+  order    Int
+}
+
+type BbqSpecs {
+  fuelType        String?
+  cookingAreaCm2  Int?
+  numberOfBurners Int?
+  btuRating       Int?
+  grillMaterial   String?
+  dimensions      String?
+  weightKg        Float?
+  color           String?
+  ignitionType    String?
+  hasSideburner   Boolean?
+  hasRotisserie   Boolean?
+  hasThermometer  Boolean?
+  hasWheels       Boolean?
+}
+
+model Product {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  name             String
+  nameEn           String?
+  slug             String         @unique
+  sku              String         @unique
+  shortDescription String?
+  description      String
+  descriptionEn    String?
+  price            Float
+  discountPrice    Float?
+  currency         String         @default("GEL")
+  stock            Int            @default(0)
+  availability     String         @default("IN_STOCK")
+  categoryId       String         @db.ObjectId
+  category         Category       @relation(fields: [categoryId], references: [id])
+  brandId          String         @db.ObjectId
+  brand            Brand          @relation(fields: [brandId], references: [id])
+  images           ProductImage[]
+  tags             String[]
+  warranty         String?
+  manufacturer     String?
+  countryOfOrigin  String?
+  bbqSpecs         BbqSpecs?
+  isFeatured       Boolean        @default(false)
+  isPublished      Boolean        @default(false)
+  isNewArrival     Boolean        @default(false)
+  metaTitle        String?
+  metaDescription  String?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([isPublished, isFeatured])
+  @@index([price])
+}
+
+model SiteSettings {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  siteName        String   @default("BBQ Store Georgia")
+  siteDescription String?
+  contactPhone    String?
+  contactEmail    String?
+  contactAddress  String?
+  socialFacebook  String?
+  socialInstagram String?
+  heroTitle       String?
+  heroSubtitle    String?
+  heroImage       String?
+  updatedAt       DateTime @updatedAt
+}
