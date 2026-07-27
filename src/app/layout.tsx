@@ -5,18 +5,18 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'BBQ Store Georgia | ბარბექიუ გრილების მაღაზია',
-    template: '%s | BBQ Store Georgia',
+    default: 'შამფურმანია | Shamfurmania',
+    template: '%s | შამფურმანია',
   },
   description:
-    'საქართველოში ბარბექიუ გრილების ყველაზე დიდი არჩევანი. გაზის, ნახშირის, ელექტრო და პელეტის გრილები საუკეთესო ფასად.',
+    'შამფურები, გრილები და ბარბექიუს აქსესუარები საქართველოში. პრემიუმ ხარისხის პროდუქცია საუკეთესო ფასად.',
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
   ),
   openGraph: {
     type: 'website',
     locale: 'ka_GE',
-    siteName: 'BBQ Store Georgia',
+    siteName: 'შამფურმანია',
   },
   robots: {
     index: true,
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ka" className={georgianFont.variable}>
+    <html lang="ka" className={georgianFont.variable} suppressHydrationWarning>
       <body>
         <ThemeRegistry>{children}</ThemeRegistry>
       </body>

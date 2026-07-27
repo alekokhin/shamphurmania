@@ -7,8 +7,8 @@ import {
   Box,
   Stack,
 } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import MobileNav from './MobileNav';
 
 const navLinks = [
@@ -22,8 +22,12 @@ export default function Header() {
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <LocalFireDepartmentIcon
-              sx={{ color: 'primary.main', mr: 1, fontSize: 32 }}
+            <Image
+              src="/logo.jpg"
+              alt="შამფურმანია"
+              width={40}
+              height={40}
+              style={{ marginRight: 8, borderRadius: 4 }}
             />
             <Typography
               variant="h6"
@@ -34,7 +38,7 @@ export default function Header() {
                 display: { xs: 'none', sm: 'block' },
               }}
             >
-              BBQ Store
+              შამფურმანია
             </Typography>
           </Link>
 

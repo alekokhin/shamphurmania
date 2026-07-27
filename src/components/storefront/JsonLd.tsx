@@ -28,7 +28,7 @@ export function ProductJsonLd({ product }: { product: ProductWithRelations }) {
       itemCondition: 'https://schema.org/NewCondition',
       seller: {
         '@type': 'Organization',
-        name: 'BBQ Store Georgia',
+        name: 'შამფურმანია',
       },
     },
     ...(product.bbqSpecs?.weightKg && {
@@ -56,11 +56,11 @@ export function WebsiteJsonLd() {
         __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          name: 'BBQ Store Georgia',
+          name: 'შამფურმანია',
           url: process.env.NEXT_PUBLIC_SITE_URL,
           inLanguage: 'ka',
           description:
-            'საქართველოში ბარბექიუ გრილების ყველაზე დიდი არჩევანი',
+            'შამფურები, გრილები და ბარბექიუს აქსესუარები საქართველოში',
         }),
       }}
     />
@@ -75,8 +75,8 @@ export function LocalBusinessJsonLd() {
         __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Store',
-          name: 'BBQ Store Georgia',
-          description: 'ბარბექიუ გრილების მაღაზია საქართველოში',
+          name: 'შამფურმანია',
+          description: 'შამფურების და გრილების მაღაზია საქართველოში',
           address: {
             '@type': 'PostalAddress',
             addressCountry: 'GE',

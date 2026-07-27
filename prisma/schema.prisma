@@ -108,7 +108,7 @@ model Product {
 
 model SiteSettings {
   id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  siteName        String   @default("BBQ Store Georgia")
+  siteName        String   @default("შამფურმანია")
   siteDescription String?
   contactPhone    String?
   contactEmail    String?

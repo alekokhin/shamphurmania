@@ -18,7 +18,7 @@ export default async function SettingsPage() {
       </Typography>
       <SettingsForm
         initialData={{
-          siteName: settings?.siteName || 'BBQ Store Georgia',
+          siteName: settings?.siteName || 'შამფურმანია',
           siteDescription: settings?.siteDescription || '',
           contactPhone: settings?.contactPhone || '',
           contactEmail: settings?.contactEmail || '',

@@ -1,5 +1,5 @@
-export const SITE_NAME = 'BBQ Store Georgia';
-export const SITE_NAME_KA = 'ბარბექიუ მაღაზია';
+export const SITE_NAME = 'შამფურმანია';
+export const SITE_NAME_KA = 'შამფურმანია';
 export const DEFAULT_CURRENCY = 'GEL';
 export const PRODUCTS_PER_PAGE = 12;
 

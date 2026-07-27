@@ -19,8 +19,8 @@ export async function generateMetadata({
   if (!brand) return { title: 'ბრენდი ვერ მოიძებნა' };
 
   return {
-    title: `${brand.name} | BBQ Store Georgia`,
-    description: brand.description || `${brand.name} გრილები - BBQ Store Georgia`,
+    title: `${brand.name} | შამფურმანია`,
+    description: brand.description || `${brand.name} - შამფურმანია`,
   };
 }
 

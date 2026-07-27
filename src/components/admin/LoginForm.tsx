@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { loginSchema, type LoginFormData } from '@/schemas/auth.schema';
@@ -79,8 +79,12 @@ export default function LoginForm() {
         }}
       >
         <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <LocalFireDepartmentIcon
-            sx={{ fontSize: 48, color: 'primary.main', mb: 1 }}
+          <Image
+            src="/logo.jpg"
+            alt="შამფურმანია"
+            width={64}
+            height={64}
+            style={{ marginBottom: 8, borderRadius: 8 }}
           />
           <Typography variant="h5" sx={{ fontWeight: 700 }}>
             ადმინ პანელი

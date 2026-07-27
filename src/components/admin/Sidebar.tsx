@@ -21,7 +21,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
@@ -61,8 +61,12 @@ export default function Sidebar() {
           borderColor: 'divider',
         }}
       >
-        <LocalFireDepartmentIcon
-          sx={{ color: 'primary.main', mr: 1, fontSize: 28 }}
+        <Image
+          src="/logo.jpg"
+          alt="შამფურმანია"
+          width={28}
+          height={28}
+          style={{ marginRight: 8, borderRadius: 4 }}
         />
         <Typography variant="h6" sx={{ fontWeight: 700 }}>
           ადმინ პანელი

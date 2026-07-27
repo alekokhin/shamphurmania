@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -45,11 +45,15 @@ export default function MobileNav({ links }: MobileNavProps) {
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <LocalFireDepartmentIcon
-              sx={{ color: 'primary.main', mr: 1 }}
+            <Image
+              src="/logo.jpg"
+              alt="შამფურმანია"
+              width={28}
+              height={28}
+              style={{ marginRight: 8, borderRadius: 4 }}
             />
             <Typography variant="h6" sx={{ fontWeight: 700 }}>
-              BBQ Store
+              შამფურმანია
             </Typography>
           </Box>
           <IconButton onClick={() => setOpen(false)} aria-label="დახურვა">

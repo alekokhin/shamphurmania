@@ -31,13 +31,13 @@ async function main() {
   if (settingsCount === 0) {
     await prisma.siteSettings.create({
       data: {
-        siteName: 'BBQ Store Georgia',
+        siteName: 'შამფურმანია',
         siteDescription:
-          'საქართველოში ბარბექიუ გრილების ყველაზე დიდი არჩევანი',
+          'შამფურები, გრილები და ბარბექიუს აქსესუარები საქართველოში',
         contactEmail: email,
-        heroTitle: 'პრემიუმ ბარბექიუ გრილები',
+        heroTitle: 'პრემიუმ შამფურები და გრილები',
         heroSubtitle:
-          'აღმოაჩინეთ საუკეთესო გრილები თქვენი გარე სამზარეულოსთვის',
+          'აღმოაჩინეთ საუკეთესო შამფურები, გრილები და ბარბექიუს აქსესუარები',
       },
     });
     console.log('Default site settings created');

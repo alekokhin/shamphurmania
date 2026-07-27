@@ -20,7 +20,7 @@ export async function generateMetadata({
 
   return {
     title: `${category.name} | ბარბექიუ გრილები`,
-    description: category.description || `${category.name} - BBQ Store Georgia`,
+    description: category.description || `${category.name} - შამფურმანია`,
   };
 }
 

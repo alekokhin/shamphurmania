@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Stack, IconButton } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -31,16 +31,20 @@ export default function Footer() {
           {/* Brand */}
           <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-              <LocalFireDepartmentIcon
-                sx={{ color: 'primary.main', mr: 1, fontSize: 28 }}
+              <Image
+                src="/logo.jpg"
+                alt="შამფურმანია"
+                width={32}
+                height={32}
+                style={{ marginRight: 8, borderRadius: 4 }}
               />
               <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                BBQ Store Georgia
+                შამფურმანია
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ color: 'grey.400', mb: 2 }}>
-              საქართველოში ბარბექიუ გრილების ყველაზე დიდი არჩევანი. პრემიუმ
-              ხარისხის გრილები საუკეთესო ფასად.
+              შამფურები, გრილები და ბარბექიუს აქსესუარები საქართველოში. პრემიუმ
+              ხარისხის პროდუქცია საუკეთესო ფასად.
             </Typography>
           </Box>
 
@@ -107,7 +111,7 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" sx={{ color: 'grey.500' }}>
-            &copy; {new Date().getFullYear()} BBQ Store Georgia.
+            &copy; {new Date().getFullYear()} შამფურმანია.
             ყველა უფლება დაცულია.
           </Typography>
         </Box>

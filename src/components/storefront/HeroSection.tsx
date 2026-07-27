@@ -38,7 +38,7 @@ export default function HeroSection() {
               lineHeight: 1.15,
             }}
           >
-            პრემიუმ ბარბექიუ გრილები
+            პრემიუმ შამფურები და გრილები
             <Box
               component="span"
               sx={{ color: 'primary.light', display: 'block' }}
@@ -56,8 +56,8 @@ export default function HeroSection() {
               lineHeight: 1.6,
             }}
           >
-            აღმოაჩინეთ საუკეთესო გრილები თქვენი გარე სამზარეულოსთვის. გაზის,
-            ნახშირის, ელექტრო და პელეტის გრილები წამყვანი ბრენდებისგან.
+            აღმოაჩინეთ საუკეთესო შამფურები, გრილები და ბარბექიუს აქსესუარები
+            თქვენი გარე სამზარეულოსთვის. წამყვანი ბრენდების პროდუქცია საუკეთესო ფასად.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
             <Link href="/products" style={{ textDecoration: 'none' }}>
