@@ -16,7 +16,6 @@ import {
 } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import InventoryIcon from '@mui/icons-material/Inventory';
-import CategoryIcon from '@mui/icons-material/Category';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -31,7 +30,6 @@ const DRAWER_WIDTH = 260;
 const iconMap: Record<string, React.ReactElement> = {
   Dashboard: <DashboardIcon />,
   Inventory: <InventoryIcon />,
-  Category: <CategoryIcon />,
   Storefront: <StorefrontIcon />,
   Settings: <SettingsIcon />,
 };
@@ -39,7 +37,6 @@ const iconMap: Record<string, React.ReactElement> = {
 const navItems = [
   { label: 'მთავარი', href: '/admin/dashboard', icon: 'Dashboard' },
   { label: 'პროდუქტები', href: '/admin/products', icon: 'Inventory' },
-  { label: 'კატეგორიები', href: '/admin/categories', icon: 'Category' },
   { label: 'ბრენდები', href: '/admin/brands', icon: 'Storefront' },
   { label: 'პარამეტრები', href: '/admin/settings', icon: 'Settings' },
 ];

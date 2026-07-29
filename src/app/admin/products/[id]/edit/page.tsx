@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { Box, Typography } from '@mui/material';
 import ProductForm from '@/components/admin/ProductForm';
 import { getProductById } from '@/data/products';
-import { getAllCategories } from '@/data/categories';
 import { getAllBrands } from '@/data/brands';
 
 export default async function EditProductPage({
@@ -13,9 +12,8 @@ export default async function EditProductPage({
 }) {
   const { id } = await params;
 
-  const [product, categories, brands] = await Promise.all([
+  const [product, brands] = await Promise.all([
     getProductById(id),
-    getAllCategories(),
     getAllBrands(),
   ]);
 
@@ -44,7 +42,6 @@ export default async function EditProductPage({
             | 'IN_STOCK'
             | 'OUT_OF_STOCK'
             | 'PREORDER',
-          categoryId: product.categoryId,
           brandId: product.brandId,
           images: product.images.map((img) => ({
             publicId: img.publicId,
@@ -82,7 +79,6 @@ export default async function EditProductPage({
           metaTitle: product.metaTitle || '',
           metaDescription: product.metaDescription || '',
         }}
-        categories={categories.map((c) => ({ id: c.id, name: c.name }))}
         brands={brands.map((b) => ({ id: b.id, name: b.name }))}
       />
     </Box>

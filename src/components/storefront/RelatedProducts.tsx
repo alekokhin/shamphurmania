@@ -4,14 +4,14 @@ import ProductCard from './ProductCard';
 
 interface RelatedProductsProps {
   productId: string;
-  categoryId: string;
+  brandId: string;
 }
 
 export default async function RelatedProducts({
   productId,
-  categoryId,
+  brandId,
 }: RelatedProductsProps) {
-  const products = await getRelatedProducts(productId, categoryId, 4);
+  const products = await getRelatedProducts(productId, brandId, 4);
 
   if (products.length === 0) return null;
 

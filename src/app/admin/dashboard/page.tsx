@@ -14,7 +14,6 @@ import {
 } from '@mui/material';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import PublishIcon from '@mui/icons-material/Publish';
-import CategoryIcon from '@mui/icons-material/Category';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import { getDashboardStats } from '@/data/dashboard';
 import { formatPrice, formatDate } from '@/lib/utils';
@@ -77,7 +76,7 @@ export default async function DashboardPage() {
           gridTemplateColumns: {
             xs: '1fr',
             sm: '1fr 1fr',
-            md: '1fr 1fr 1fr 1fr',
+            md: '1fr 1fr 1fr',
           },
           gap: 3,
           mb: 4,
@@ -96,12 +95,6 @@ export default async function DashboardPage() {
           color="#2E7D32"
         />
         <StatCard
-          title="კატეგორიები"
-          value={stats.categoryCount}
-          icon={<CategoryIcon />}
-          color="#1565C0"
-        />
-        <StatCard
           title="ბრენდები"
           value={stats.brandCount}
           icon={<StorefrontIcon />}
@@ -117,7 +110,6 @@ export default async function DashboardPage() {
           <TableHead>
             <TableRow>
               <TableCell>სახელი</TableCell>
-              <TableCell>კატეგორია</TableCell>
               <TableCell>ფასი</TableCell>
               <TableCell>სტატუსი</TableCell>
               <TableCell>თარიღი</TableCell>
@@ -126,7 +118,7 @@ export default async function DashboardPage() {
           <TableBody>
             {stats.recentProducts.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={5} align="center">
+                <TableCell colSpan={4} align="center">
                   <Typography
                     variant="body2"
                     color="text.secondary"
@@ -140,7 +132,6 @@ export default async function DashboardPage() {
               stats.recentProducts.map((product) => (
                 <TableRow key={product.id}>
                   <TableCell>{product.name}</TableCell>
-                  <TableCell>{product.category.name}</TableCell>
                   <TableCell>{formatPrice(product.price)}</TableCell>
                   <TableCell>
                     <Chip

@@ -5,7 +5,6 @@ import type { Prisma } from '@prisma/client';
 interface ProductQueryParams {
   page?: number;
   limit?: number;
-  categorySlug?: string;
   brandSlug?: string;
   search?: string;
   sortBy?: string;
@@ -36,9 +35,6 @@ export async function getPublishedProducts(params: ProductQueryParams = {}) {
 
   const where: Prisma.ProductWhereInput = { isPublished: true };
 
-  if (filters.categorySlug) {
-    where.category = { slug: filters.categorySlug };
-  }
   if (filters.brandSlug) {
     where.brand = { slug: filters.brandSlug };
   }
@@ -66,7 +62,7 @@ export async function getPublishedProducts(params: ProductQueryParams = {}) {
       skip,
       take: limit,
       orderBy,
-      include: { category: true, brand: true },
+      include: { brand: true },
     }),
     prisma.product.count({ where }),
   ]);
@@ -82,14 +78,14 @@ export async function getPublishedProducts(params: ProductQueryParams = {}) {
 export async function getProductBySlug(slug: string) {
   return prisma.product.findUnique({
     where: { slug },
-    include: { category: true, brand: true },
+    include: { brand: true },
   });
 }
 
 export async function getFeaturedProducts(take = 8) {
   return prisma.product.findMany({
     where: { isPublished: true, isFeatured: true },
-    include: { category: true, brand: true },
+    include: { brand: true },
     take,
     orderBy: { createdAt: 'desc' },
   });
@@ -98,7 +94,7 @@ export async function getFeaturedProducts(take = 8) {
 export async function getNewArrivals(take = 4) {
   return prisma.product.findMany({
     where: { isPublished: true, isNewArrival: true },
-    include: { category: true, brand: true },
+    include: { brand: true },
     take,
     orderBy: { createdAt: 'desc' },
   });
@@ -106,16 +102,16 @@ export async function getNewArrivals(take = 4) {
 
 export async function getRelatedProducts(
   productId: string,
-  categoryId: string,
+  brandId: string,
   take = 4
 ) {
   return prisma.product.findMany({
     where: {
       isPublished: true,
-      categoryId,
+      brandId,
       id: { not: productId },
     },
-    include: { category: true, brand: true },
+    include: { brand: true },
     take,
     orderBy: { createdAt: 'desc' },
   });
@@ -141,7 +137,7 @@ export async function getAllProducts(params: ProductQueryParams = {}) {
       skip,
       take: limit,
       orderBy: { createdAt: 'desc' },
-      include: { category: true, brand: true },
+      include: { brand: true },
     }),
     prisma.product.count({ where }),
   ]);
@@ -152,7 +148,7 @@ export async function getAllProducts(params: ProductQueryParams = {}) {
 export async function getProductById(id: string) {
   return prisma.product.findUnique({
     where: { id },
-    include: { category: true, brand: true },
+    include: { brand: true },
   });
 }
 

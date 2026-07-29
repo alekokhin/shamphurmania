@@ -100,7 +100,6 @@ export default async function ProductDetailPage({
         items={[
           { name: 'მთავარი', href: '/' },
           { name: 'პროდუქტები', href: '/products' },
-          { name: product.category.name, href: `/categories/${product.category.slug}` },
           { name: product.name, href: `/products/${product.slug}` },
         ]}
       />
@@ -115,11 +114,6 @@ export default async function ProductDetailPage({
         <Link href="/products">
           <Typography variant="body2" color="text.secondary">
             პროდუქტები
-          </Typography>
-        </Link>
-        <Link href={`/categories/${product.category.slug}`}>
-          <Typography variant="body2" color="text.secondary">
-            {product.category.name}
           </Typography>
         </Link>
         <Typography variant="body2" color="text.primary">
@@ -263,7 +257,7 @@ export default async function ProductDetailPage({
       {/* Related products */}
       <RelatedProducts
         productId={product.id}
-        categoryId={product.categoryId}
+        brandId={product.brandId}
       />
     </Container>
   );

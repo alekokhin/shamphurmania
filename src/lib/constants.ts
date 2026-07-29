@@ -33,7 +33,6 @@ export const SORT_OPTIONS = [
 export const ADMIN_NAV_ITEMS = [
   { label: 'მთავარი', href: '/admin/dashboard', icon: 'Dashboard' },
   { label: 'პროდუქტები', href: '/admin/products', icon: 'Inventory' },
-  { label: 'კატეგორიები', href: '/admin/categories', icon: 'Category' },
   { label: 'ბრენდები', href: '/admin/brands', icon: 'Storefront' },
   { label: 'პარამეტრები', href: '/admin/settings', icon: 'Settings' },
 ] as const;

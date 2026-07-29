@@ -8,9 +8,9 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import { formatPrice, getDiscountPercentage } from '@/lib/utils';
-import type { Product, Category, Brand } from '@prisma/client';
+import type { Product, Brand } from '@prisma/client';
 
-type ProductWithRelations = Product & { category: Category; brand: Brand };
+type ProductWithRelations = Product & { brand: Brand };
 
 interface ProductCardProps {
   product: ProductWithRelations;
@@ -110,7 +110,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           color="text.secondary"
           sx={{ mb: 0.5 }}
         >
-          {product.category.name}
+          {product.brand.name}
         </Typography>
         <Typography
           variant="body1"

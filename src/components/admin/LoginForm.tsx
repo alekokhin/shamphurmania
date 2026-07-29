@@ -48,8 +48,7 @@ export default function LoginForm() {
       if (result?.error) {
         setError('არასწორი ელ-ფოსტა ან პაროლი');
       } else {
-        router.push('/admin/dashboard');
-        router.refresh();
+        window.location.href = '/admin/dashboard';
       }
     } catch {
       setError('დაფიქსირდა შეცდომა');

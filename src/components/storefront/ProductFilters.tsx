@@ -21,12 +21,10 @@ import { useQueryParams } from '@/hooks/useQueryParams';
 import { FUEL_TYPE_OPTIONS, SORT_OPTIONS } from '@/lib/constants';
 
 interface ProductFiltersProps {
-  categories: { slug: string; name: string }[];
   brands: { slug: string; name: string }[];
 }
 
 export default function ProductFilters({
-  categories,
   brands,
 }: ProductFiltersProps) {
   const { getParam, setQueryParam, setMultipleParams } = useQueryParams();
@@ -35,7 +33,6 @@ export default function ProductFilters({
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const activeFiltersCount = [
-    getParam('category'),
     getParam('brand'),
     getParam('fuelType'),
     getParam('sort'),
@@ -63,22 +60,6 @@ export default function ProductFilters({
           {SORT_OPTIONS.map((opt) => (
             <MenuItem key={opt.value} value={opt.value}>
               {opt.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <FormControl size="small" fullWidth>
-        <InputLabel>კატეგორია</InputLabel>
-        <Select
-          value={getParam('category') || ''}
-          label="კატეგორია"
-          onChange={(e) => setQueryParam('category', e.target.value || null)}
-        >
-          <MenuItem value="">ყველა</MenuItem>
-          {categories.map((cat) => (
-            <MenuItem key={cat.slug} value={cat.slug}>
-              {cat.name}
             </MenuItem>
           ))}
         </Select>
@@ -122,7 +103,6 @@ export default function ProductFilters({
           size="small"
           onClick={() =>
             setMultipleParams({
-              category: null,
               brand: null,
               fuelType: null,
               sort: null,

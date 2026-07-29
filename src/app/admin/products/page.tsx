@@ -71,7 +71,6 @@ export default async function ProductsPage({
             <TableRow>
               <TableCell>სურათი</TableCell>
               <TableCell>სახელი</TableCell>
-              <TableCell>კატეგორია</TableCell>
               <TableCell>ფასი</TableCell>
               <TableCell>მარაგი</TableCell>
               <TableCell>სტატუსი</TableCell>
@@ -81,7 +80,7 @@ export default async function ProductsPage({
           <TableBody>
             {products.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} align="center">
+                <TableCell colSpan={6} align="center">
                   <Typography
                     variant="body2"
                     color="text.secondary"
@@ -125,7 +124,6 @@ export default async function ProductsPage({
                       SKU: {product.sku}
                     </Typography>
                   </TableCell>
-                  <TableCell>{product.category.name}</TableCell>
                   <TableCell>
                     {product.discountPrice ? (
                       <Box>

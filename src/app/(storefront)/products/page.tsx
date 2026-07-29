@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { Box, Container, Typography, Skeleton } from '@mui/material';
 import { getPublishedProducts } from '@/data/products';
-import { getActiveCategories } from '@/data/categories';
 import { getActiveBrands } from '@/data/brands';
 import ProductGrid from '@/components/storefront/ProductGrid';
 import ProductFilters from '@/components/storefront/ProductFilters';
@@ -23,7 +22,6 @@ export default async function ProductsPage({
 }: {
   searchParams: Promise<{
     page?: string;
-    category?: string;
     brand?: string;
     search?: string;
     sort?: string;
@@ -34,10 +32,9 @@ export default async function ProductsPage({
 }) {
   const sp = await searchParams;
 
-  const [data, categories, brands] = await Promise.all([
+  const [data, brands] = await Promise.all([
     getPublishedProducts({
       page: Number(sp.page) || 1,
-      categorySlug: sp.category,
       brandSlug: sp.brand,
       search: sp.search,
       sortBy: sp.sort,
@@ -45,7 +42,6 @@ export default async function ProductsPage({
       maxPrice: sp.maxPrice ? Number(sp.maxPrice) : undefined,
       fuelType: sp.fuelType,
     }),
-    getActiveCategories(),
     getActiveBrands(),
   ]);
 
@@ -85,10 +81,6 @@ export default async function ProductsPage({
             fallback={<Skeleton variant="rounded" height={300} />}
           >
             <ProductFilters
-              categories={categories.map((c) => ({
-                slug: c.slug,
-                name: c.name,
-              }))}
               brands={brands.map((b) => ({ slug: b.slug, name: b.name }))}
             />
           </Suspense>

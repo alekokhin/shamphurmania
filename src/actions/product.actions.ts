@@ -31,13 +31,12 @@ export async function createProduct(data: unknown) {
     return { error: 'ეს SKU უკვე გამოყენებულია' };
   }
 
-  const { categoryId, brandId, ...rest } = parsed.data;
+  const { brandId, ...rest } = parsed.data;
 
   await prisma.product.create({
     data: {
       ...rest,
       slug,
-      category: { connect: { id: categoryId } },
       brand: { connect: { id: brandId } },
     },
   });
@@ -69,13 +68,12 @@ export async function updateProduct(id: string, data: unknown) {
     return { error: 'ეს SKU უკვე გამოყენებულია' };
   }
 
-  const { categoryId, brandId, ...rest } = parsed.data;
+  const { brandId, ...rest } = parsed.data;
 
   await prisma.product.update({
     where: { id },
     data: {
       ...rest,
-      category: { connect: { id: categoryId } },
       brand: { connect: { id: brandId } },
     },
   });

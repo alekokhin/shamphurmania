@@ -43,47 +43,6 @@ async function main() {
     console.log('Default site settings created');
   }
 
-  // Create default categories
-  const categoryCount = await prisma.category.count();
-  if (categoryCount === 0) {
-    const categories = [
-      {
-        name: 'გაზის გრილები',
-        nameEn: 'Gas Grills',
-        slug: 'gas-grills',
-        order: 1,
-      },
-      {
-        name: 'ნახშირის გრილები',
-        nameEn: 'Charcoal Grills',
-        slug: 'charcoal-grills',
-        order: 2,
-      },
-      {
-        name: 'ელექტრო გრილები',
-        nameEn: 'Electric Grills',
-        slug: 'electric-grills',
-        order: 3,
-      },
-      {
-        name: 'პელეტის გრილები',
-        nameEn: 'Pellet Grills',
-        slug: 'pellet-grills',
-        order: 4,
-      },
-      {
-        name: 'აქსესუარები',
-        nameEn: 'Accessories',
-        slug: 'accessories',
-        order: 5,
-      },
-    ];
-
-    for (const cat of categories) {
-      await prisma.category.create({ data: cat });
-    }
-    console.log(`Created ${categories.length} default categories`);
-  }
 }
 
 main()

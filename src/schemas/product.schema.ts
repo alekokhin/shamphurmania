@@ -35,7 +35,6 @@ export const productSchema = z.object({
   discountPrice: z.number().positive().optional().nullable(),
   stock: z.number().int().min(0, 'მარაგი არ შეიძლება იყოს უარყოფითი'),
   availability: z.enum(['IN_STOCK', 'OUT_OF_STOCK', 'PREORDER']),
-  categoryId: z.string().min(1, 'კატეგორია სავალდებულოა'),
   brandId: z.string().min(1, 'ბრენდი სავალდებულოა'),
   images: z.array(productImageSchema).min(1, 'მინიმუმ ერთი სურათი სავალდებულოა'),
   tags: z.array(z.string()),

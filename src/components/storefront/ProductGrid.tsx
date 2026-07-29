@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material';
-import type { Product, Category, Brand } from '@prisma/client';
+import type { Product, Brand } from '@prisma/client';
 import ProductCard from './ProductCard';
 
-type ProductWithRelations = Product & { category: Category; brand: Brand };
+type ProductWithRelations = Product & { brand: Brand };
 
 interface ProductGridProps {
   products: ProductWithRelations[];

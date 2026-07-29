@@ -27,13 +27,11 @@ import {
 
 interface ProductFormProps {
   initialData?: ProductFormData & { id?: string; slug?: string };
-  categories: { id: string; name: string }[];
   brands: { id: string; name: string }[];
 }
 
 export default function ProductForm({
   initialData,
-  categories,
   brands,
 }: ProductFormProps) {
   const [isPending, startTransition] = useTransition();
@@ -59,7 +57,6 @@ export default function ProductForm({
       discountPrice: null,
       stock: 0,
       availability: 'IN_STOCK',
-      categoryId: '',
       brandId: '',
       images: [],
       tags: [],
@@ -431,28 +428,11 @@ export default function ProductForm({
             />
           </Paper>
 
-          {/* Category & Brand */}
+          {/* Brand */}
           <Paper sx={{ p: 3 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>
-              კატეგორია და ბრენდი
+              ბრენდი
             </Typography>
-            <TextField
-              {...register('categoryId')}
-              label="კატეგორია *"
-              select
-              fullWidth
-              error={!!errors.categoryId}
-              helperText={errors.categoryId?.message}
-              defaultValue={initialData?.categoryId || ''}
-              sx={{ mb: 2 }}
-            >
-              <MenuItem value="">აირჩიეთ</MenuItem>
-              {categories.map((cat) => (
-                <MenuItem key={cat.id} value={cat.id}>
-                  {cat.name}
-                </MenuItem>
-              ))}
-            </TextField>
             <TextField
               {...register('brandId')}
               label="ბრენდი *"

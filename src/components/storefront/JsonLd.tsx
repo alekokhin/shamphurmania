@@ -1,6 +1,6 @@
-import type { Product, Category, Brand } from '@prisma/client';
+import type { Product, Brand } from '@prisma/client';
 
-type ProductWithRelations = Product & { brand: Brand; category: Category };
+type ProductWithRelations = Product & { brand: Brand };
 
 export function ProductJsonLd({ product }: { product: ProductWithRelations }) {
   const jsonLd = {
@@ -14,7 +14,6 @@ export function ProductJsonLd({ product }: { product: ProductWithRelations }) {
       '@type': 'Brand',
       name: product.brand.name,
     },
-    category: product.category.name,
     offers: {
       '@type': 'Offer',
       price: product.discountPrice || product.price,
