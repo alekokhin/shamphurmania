@@ -38,20 +38,10 @@ type ProductImage {
   order    Int
 }
 
-type BbqSpecs {
-  fuelType        String?
-  cookingAreaCm2  Int?
-  numberOfBurners Int?
-  btuRating       Int?
-  grillMaterial   String?
-  dimensions      String?
-  weightKg        Float?
-  color           String?
-  ignitionType    String?
-  hasSideburner   Boolean?
-  hasRotisserie   Boolean?
-  hasThermometer  Boolean?
-  hasWheels       Boolean?
+type ShamfuriSpecs {
+  length    String?
+  thickness String?
+  material  String?
 }
 
 model Product {
@@ -75,7 +65,7 @@ model Product {
   warranty         String?
   manufacturer     String?
   countryOfOrigin  String?
-  bbqSpecs         BbqSpecs?
+  shamfuriSpecs    ShamfuriSpecs?
   isFeatured       Boolean        @default(false)
   isPublished      Boolean        @default(false)
   isNewArrival     Boolean        @default(false)

@@ -10,7 +10,6 @@ interface ProductQueryParams {
   sortBy?: string;
   minPrice?: number;
   maxPrice?: number;
-  fuelType?: string;
 }
 
 function getSortOrder(
@@ -50,10 +49,6 @@ export async function getPublishedProducts(params: ProductQueryParams = {}) {
     if (filters.minPrice !== undefined) where.price.gte = filters.minPrice;
     if (filters.maxPrice !== undefined) where.price.lte = filters.maxPrice;
   }
-  if (filters.fuelType) {
-    where.bbqSpecs = { is: { fuelType: filters.fuelType } };
-  }
-
   const orderBy = getSortOrder(filters.sortBy);
 
   const [products, total] = await Promise.all([

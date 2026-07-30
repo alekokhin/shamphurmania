@@ -20,10 +20,7 @@ import { useTransition, useState } from 'react';
 import { productSchema, type ProductFormData } from '@/schemas/product.schema';
 import { createProduct, updateProduct } from '@/actions/product.actions';
 import ImageUploader from './ImageUploader';
-import {
-  AVAILABILITY_OPTIONS,
-  FUEL_TYPE_OPTIONS,
-} from '@/lib/constants';
+import { AVAILABILITY_OPTIONS } from '@/lib/constants';
 
 interface ProductFormProps {
   initialData?: ProductFormData & { id?: string; slug?: string };
@@ -63,20 +60,10 @@ export default function ProductForm({
       warranty: '',
       manufacturer: '',
       countryOfOrigin: '',
-      bbqSpecs: {
-        fuelType: '',
-        cookingAreaCm2: undefined,
-        numberOfBurners: undefined,
-        btuRating: undefined,
-        grillMaterial: '',
-        dimensions: '',
-        weightKg: undefined,
-        color: '',
-        ignitionType: '',
-        hasSideburner: false,
-        hasRotisserie: false,
-        hasThermometer: false,
-        hasWheels: false,
+      shamfuriSpecs: {
+        length: '',
+        thickness: '',
+        material: '',
       },
       isFeatured: false,
       isPublished: false,
@@ -237,89 +224,32 @@ export default function ProductForm({
             </Box>
           </Paper>
 
-          {/* BBQ Specs */}
+          {/* Shamfuri Specs */}
           <Paper sx={{ p: 3 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>
-              გრილის სპეციფიკაციები
+              შამფურის ინფორმაცია
             </Typography>
             <Box
               sx={{
                 display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr 1fr' },
                 gap: 2,
               }}
             >
               <TextField
-                {...register('bbqSpecs.fuelType')}
-                label="საწვავის ტიპი"
-                select
-                defaultValue={initialData?.bbqSpecs?.fuelType || ''}
-              >
-                <MenuItem value="">არჩევა</MenuItem>
-                {FUEL_TYPE_OPTIONS.map((opt) => (
-                  <MenuItem key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                {...register('bbqSpecs.cookingAreaCm2', {
-                  valueAsNumber: true,
-                })}
-                label="სამზარეულო ფართობი (სმ²)"
-                type="number"
-                slotProps={{ htmlInput: { min: '0' } }}
+                {...register('shamfuriSpecs.length')}
+                label="შამფურის სიგრძე"
+                placeholder="მაგ: 40 სმ"
               />
               <TextField
-                {...register('bbqSpecs.numberOfBurners', {
-                  valueAsNumber: true,
-                })}
-                label="ბურნერების რაოდენობა"
-                type="number"
-                slotProps={{ htmlInput: { min: '0' } }}
+                {...register('shamfuriSpecs.thickness')}
+                label="შამფურის სისქე"
+                placeholder="მაგ: 2 მმ"
               />
               <TextField
-                {...register('bbqSpecs.btuRating', { valueAsNumber: true })}
-                label="BTU სიმძლავრე"
-                type="number"
-                slotProps={{ htmlInput: { min: '0' } }}
-              />
-              <TextField
-                {...register('bbqSpecs.grillMaterial')}
-                label="მასალა"
-              />
-              <TextField
-                {...register('bbqSpecs.dimensions')}
-                label="ზომები (სxგxმ სმ)"
-              />
-              <TextField
-                {...register('bbqSpecs.weightKg', { valueAsNumber: true })}
-                label="წონა (კგ)"
-                type="number"
-                slotProps={{ htmlInput: { step: '0.1', min: '0' } }}
-              />
-              <TextField {...register('bbqSpecs.color')} label="ფერი" />
-              <TextField
-                {...register('bbqSpecs.ignitionType')}
-                label="ანთების ტიპი"
-              />
-            </Box>
-            <Box sx={{ mt: 2 }}>
-              <FormControlLabel
-                control={<Switch {...register('bbqSpecs.hasSideburner')} />}
-                label="გვერდითი ბურნერი"
-              />
-              <FormControlLabel
-                control={<Switch {...register('bbqSpecs.hasRotisserie')} />}
-                label="როტისერი"
-              />
-              <FormControlLabel
-                control={<Switch {...register('bbqSpecs.hasThermometer')} />}
-                label="თერმომეტრი"
-              />
-              <FormControlLabel
-                control={<Switch {...register('bbqSpecs.hasWheels')} />}
-                label="ბორბლები"
+                {...register('shamfuriSpecs.material')}
+                label="შამფურის მასალა"
+                placeholder="მაგ: უჟანგავი ფოლადი"
               />
             </Box>
           </Paper>

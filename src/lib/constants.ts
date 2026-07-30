@@ -15,14 +15,6 @@ export const AVAILABILITY_MAP: Record<string, string> = {
   PREORDER: 'წინასწარი შეკვეთა',
 };
 
-export const FUEL_TYPE_OPTIONS = [
-  { value: 'გაზი', label: 'გაზი' },
-  { value: 'ნახშირი', label: 'ნახშირი' },
-  { value: 'ელექტრო', label: 'ელექტრო' },
-  { value: 'პელეტი', label: 'პელეტი' },
-  { value: 'ჰიბრიდი', label: 'ჰიბრიდი' },
-] as const;
-
 export const SORT_OPTIONS = [
   { value: 'newest', label: 'უახლესი' },
   { value: 'price-asc', label: 'ფასი: დაბლიდან' },

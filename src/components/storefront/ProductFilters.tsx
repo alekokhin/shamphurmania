@@ -18,7 +18,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import { useQueryParams } from '@/hooks/useQueryParams';
-import { FUEL_TYPE_OPTIONS, SORT_OPTIONS } from '@/lib/constants';
+import { SORT_OPTIONS } from '@/lib/constants';
 
 interface ProductFiltersProps {
   brands: { slug: string; name: string }[];
@@ -34,7 +34,6 @@ export default function ProductFilters({
 
   const activeFiltersCount = [
     getParam('brand'),
-    getParam('fuelType'),
     getParam('sort'),
   ].filter(Boolean).length;
 
@@ -81,22 +80,6 @@ export default function ProductFilters({
         </Select>
       </FormControl>
 
-      <FormControl size="small" fullWidth>
-        <InputLabel>საწვავის ტიპი</InputLabel>
-        <Select
-          value={getParam('fuelType') || ''}
-          label="საწვავის ტიპი"
-          onChange={(e) => setQueryParam('fuelType', e.target.value || null)}
-        >
-          <MenuItem value="">ყველა</MenuItem>
-          {FUEL_TYPE_OPTIONS.map((opt) => (
-            <MenuItem key={opt.value} value={opt.value}>
-              {opt.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
       {activeFiltersCount > 0 && (
         <Button
           variant="text"
@@ -104,7 +87,6 @@ export default function ProductFilters({
           onClick={() =>
             setMultipleParams({
               brand: null,
-              fuelType: null,
               sort: null,
             })
           }

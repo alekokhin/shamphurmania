@@ -30,13 +30,6 @@ export function ProductJsonLd({ product }: { product: ProductWithRelations }) {
         name: 'შამფურმანია',
       },
     },
-    ...(product.bbqSpecs?.weightKg && {
-      weight: {
-        '@type': 'QuantitativeValue',
-        value: product.bbqSpecs.weightKg,
-        unitCode: 'KGM',
-      },
-    }),
   };
 
   return (

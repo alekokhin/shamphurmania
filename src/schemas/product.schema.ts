@@ -9,20 +9,10 @@ export const productImageSchema = z.object({
   order: z.number().int().min(0),
 });
 
-export const bbqSpecsSchema = z.object({
-  fuelType: z.string().optional(),
-  cookingAreaCm2: z.number().positive().optional(),
-  numberOfBurners: z.number().int().positive().optional(),
-  btuRating: z.number().positive().optional(),
-  grillMaterial: z.string().optional(),
-  dimensions: z.string().optional(),
-  weightKg: z.number().positive().optional(),
-  color: z.string().optional(),
-  ignitionType: z.string().optional(),
-  hasSideburner: z.boolean().optional(),
-  hasRotisserie: z.boolean().optional(),
-  hasThermometer: z.boolean().optional(),
-  hasWheels: z.boolean().optional(),
+export const shamfuriSpecsSchema = z.object({
+  length: z.string().optional(),
+  thickness: z.string().optional(),
+  material: z.string().optional(),
 });
 
 export const productSchema = z.object({
@@ -41,7 +31,7 @@ export const productSchema = z.object({
   warranty: z.string().optional(),
   manufacturer: z.string().optional(),
   countryOfOrigin: z.string().optional(),
-  bbqSpecs: bbqSpecsSchema.optional(),
+  shamfuriSpecs: shamfuriSpecsSchema.optional(),
   isFeatured: z.boolean(),
   isPublished: z.boolean(),
   isNewArrival: z.boolean(),
@@ -51,4 +41,4 @@ export const productSchema = z.object({
 
 export type ProductFormData = z.input<typeof productSchema>;
 export type ProductImageData = z.infer<typeof productImageSchema>;
-export type BbqSpecsData = z.infer<typeof bbqSpecsSchema>;
+export type ShamfuriSpecsData = z.infer<typeof shamfuriSpecsSchema>;

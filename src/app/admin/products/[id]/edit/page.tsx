@@ -55,22 +55,11 @@ export default async function EditProductPage({
           warranty: product.warranty || '',
           manufacturer: product.manufacturer || '',
           countryOfOrigin: product.countryOfOrigin || '',
-          bbqSpecs: product.bbqSpecs
+          shamfuriSpecs: product.shamfuriSpecs
             ? {
-                fuelType: product.bbqSpecs.fuelType || '',
-                cookingAreaCm2: product.bbqSpecs.cookingAreaCm2 ?? undefined,
-                numberOfBurners:
-                  product.bbqSpecs.numberOfBurners ?? undefined,
-                btuRating: product.bbqSpecs.btuRating ?? undefined,
-                grillMaterial: product.bbqSpecs.grillMaterial || '',
-                dimensions: product.bbqSpecs.dimensions || '',
-                weightKg: product.bbqSpecs.weightKg ?? undefined,
-                color: product.bbqSpecs.color || '',
-                ignitionType: product.bbqSpecs.ignitionType || '',
-                hasSideburner: product.bbqSpecs.hasSideburner ?? false,
-                hasRotisserie: product.bbqSpecs.hasRotisserie ?? false,
-                hasThermometer: product.bbqSpecs.hasThermometer ?? false,
-                hasWheels: product.bbqSpecs.hasWheels ?? false,
+                length: product.shamfuriSpecs.length || '',
+                thickness: product.shamfuriSpecs.thickness || '',
+                material: product.shamfuriSpecs.material || '',
               }
             : undefined,
           isFeatured: product.isFeatured,

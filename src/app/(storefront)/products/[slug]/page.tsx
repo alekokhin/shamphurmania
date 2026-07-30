@@ -232,7 +232,7 @@ export default async function ProductDetailPage({
 
           {/* Specifications */}
           <ProductSpecs
-            specs={product.bbqSpecs}
+            specs={product.shamfuriSpecs}
             warranty={product.warranty}
             manufacturer={product.manufacturer}
             countryOfOrigin={product.countryOfOrigin}

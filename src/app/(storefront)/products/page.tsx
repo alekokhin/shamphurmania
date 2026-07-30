@@ -12,9 +12,9 @@ import PaginationBar from '@/components/storefront/PaginationBar';
 import { BreadcrumbJsonLd } from '@/components/storefront/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'პროდუქტები | ბარბექიუ გრილები',
+  title: 'პროდუქტები | შამფურმანია',
   description:
-    'ბარბექიუ გრილების სრული კატალოგი. გაზის, ნახშირის, ელექტრო და პელეტის გრილები საუკეთესო ფასად საქართველოში.',
+    'შამფურების და ბარბექიუს აქსესუარების სრული კატალოგი საუკეთესო ფასად საქართველოში.',
 };
 
 export default async function ProductsPage({
@@ -27,7 +27,6 @@ export default async function ProductsPage({
     sort?: string;
     minPrice?: string;
     maxPrice?: string;
-    fuelType?: string;
   }>;
 }) {
   const sp = await searchParams;
@@ -40,7 +39,6 @@ export default async function ProductsPage({
       sortBy: sp.sort,
       minPrice: sp.minPrice ? Number(sp.minPrice) : undefined,
       maxPrice: sp.maxPrice ? Number(sp.maxPrice) : undefined,
-      fuelType: sp.fuelType,
     }),
     getActiveBrands(),
   ]);
