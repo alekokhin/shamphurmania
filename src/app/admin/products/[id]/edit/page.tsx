@@ -52,7 +52,6 @@ export default async function EditProductPage({
             order: img.order,
           })),
           tags: product.tags,
-          warranty: product.warranty || '',
           manufacturer: product.manufacturer || '',
           countryOfOrigin: product.countryOfOrigin || '',
           shamfuriSpecs: product.shamfuriSpecs

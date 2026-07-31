@@ -10,14 +10,12 @@ import type { ShamfuriSpecs } from '@prisma/client';
 
 interface ProductSpecsProps {
   specs: ShamfuriSpecs | null;
-  warranty?: string | null;
   manufacturer?: string | null;
   countryOfOrigin?: string | null;
 }
 
 export default function ProductSpecs({
   specs,
-  warranty,
   manufacturer,
   countryOfOrigin,
 }: ProductSpecsProps) {
@@ -26,7 +24,6 @@ export default function ProductSpecs({
   if (specs?.length) rows.push({ label: 'შამფურის სიგრძე', value: specs.length });
   if (specs?.thickness) rows.push({ label: 'შამფურის სისქე', value: specs.thickness });
   if (specs?.material) rows.push({ label: 'შამფურის მასალა', value: specs.material });
-  if (warranty) rows.push({ label: 'გარანტია', value: warranty });
   if (manufacturer) rows.push({ label: 'მწარმოებელი', value: manufacturer });
   if (countryOfOrigin) rows.push({ label: 'წარმოშობის ქვეყანა', value: countryOfOrigin });
 

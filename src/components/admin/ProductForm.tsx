@@ -57,7 +57,6 @@ export default function ProductForm({
       brandId: '',
       images: [],
       tags: [],
-      warranty: '',
       manufacturer: '',
       countryOfOrigin: '',
       shamfuriSpecs: {
@@ -266,12 +265,7 @@ export default function ProductForm({
                 gap: 2,
               }}
             >
-              <TextField
-                {...register('warranty')}
-                label="გარანტია"
-                placeholder="მაგ: 2 წელი"
-              />
-              <TextField
+<TextField
                 {...register('manufacturer')}
                 label="მწარმოებელი"
               />

@@ -62,7 +62,6 @@ model Product {
   brand            Brand          @relation(fields: [brandId], references: [id])
   images           ProductImage[]
   tags             String[]
-  warranty         String?
   manufacturer     String?
   countryOfOrigin  String?
   shamfuriSpecs    ShamfuriSpecs?

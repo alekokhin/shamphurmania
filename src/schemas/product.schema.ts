@@ -28,7 +28,6 @@ export const productSchema = z.object({
   brandId: z.string().min(1, 'ბრენდი სავალდებულოა'),
   images: z.array(productImageSchema).min(1, 'მინიმუმ ერთი სურათი სავალდებულოა'),
   tags: z.array(z.string()),
-  warranty: z.string().optional(),
   manufacturer: z.string().optional(),
   countryOfOrigin: z.string().optional(),
   shamfuriSpecs: shamfuriSpecsSchema.optional(),
