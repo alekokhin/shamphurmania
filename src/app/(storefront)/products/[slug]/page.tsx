@@ -50,26 +50,42 @@ export async function generateMetadata({
 
   const primaryImage = product.images[0];
 
+  const title =
+    product.metaTitle ||
+    `${product.name} - იყიდე ონლაინ | შამფურმანია`;
+  const description =
+    product.metaDescription ||
+    product.shortDescription ||
+    product.description.slice(0, 160);
+  const enrichedDescription = `${description} | ${product.brand.name} | შამფურმანია - შამფურები და გრილები საქართველოში`;
+  const imageData = primaryImage
+    ? [
+        {
+          url: primaryImage.url,
+          width: primaryImage.width,
+          height: primaryImage.height,
+          alt: primaryImage.alt || `${product.name} - შამფურმანია`,
+        },
+      ]
+    : [];
+
   return {
-    title: product.metaTitle || product.name,
-    description:
-      product.metaDescription ||
-      product.shortDescription ||
-      product.description.slice(0, 160),
+    title,
+    description: enrichedDescription.slice(0, 320),
     openGraph: {
-      title: product.name,
-      description: product.shortDescription || product.description.slice(0, 160),
-      images: primaryImage
-        ? [
-            {
-              url: primaryImage.url,
-              width: primaryImage.width,
-              height: primaryImage.height,
-            },
-          ]
-        : [],
+      title: `${product.name} | შამფურმანია`,
+      description: enrichedDescription.slice(0, 200),
+      images: imageData,
       locale: 'ka_GE',
       type: 'website',
+      url: `/products/${product.slug}`,
+      siteName: 'შამფურმანია',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | შამფურმანია`,
+      description: enrichedDescription.slice(0, 200),
+      images: imageData.map((img) => img.url),
     },
     alternates: {
       canonical: `/products/${product.slug}`,

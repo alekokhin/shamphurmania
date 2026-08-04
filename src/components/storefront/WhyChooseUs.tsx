@@ -36,11 +36,11 @@ export default function WhyChooseUs() {
     <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <Typography variant="h3" sx={{ fontWeight: 700 }}>
-            რატომ ჩვენ?
+          <Typography variant="h3" component="h2" sx={{ fontWeight: 700 }}>
+            რატომ შამფურმანია?
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
-            რა გამოგვარჩევს სხვებისგან
+            რა გამოგვარჩევს სხვა შამფურების მაღაზიებისგან
           </Typography>
         </Box>
 

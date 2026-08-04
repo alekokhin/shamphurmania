@@ -19,8 +19,26 @@ export async function generateMetadata({
   if (!brand) return { title: 'ბრენდი ვერ მოიძებნა' };
 
   return {
-    title: `${brand.name} | შამფურმანია`,
-    description: brand.description || `${brand.name} - შამფურმანია`,
+    title: `${brand.name} - შამფურები და გრილები | შამფურმანია`,
+    description:
+      brand.description ||
+      `${brand.name} - პრემიუმ შამფურები, გრილები და ბარბექიუ აქსესუარები. იყიდეთ ${brand.name} პროდუქცია შამფურმანიაში საუკეთესო ფასად საქართველოში.`,
+    openGraph: {
+      title: `${brand.name} | შამფურმანია`,
+      description: `${brand.name} - შამფურები და გრილები. იყიდეთ ონლაინ შამფურმანიაში.`,
+      url: `/brands/${slug}`,
+      siteName: 'შამფურმანია',
+      locale: 'ka_GE',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary',
+      title: `${brand.name} | შამფურმანია`,
+      description: `${brand.name} პროდუქცია - შამფურები, გრილები, აქსესუარები`,
+    },
+    alternates: {
+      canonical: `/brands/${slug}`,
+    },
   };
 }
 

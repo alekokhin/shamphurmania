@@ -9,12 +9,27 @@ import ProductGrid from '@/components/storefront/ProductGrid';
 import ProductFilters from '@/components/storefront/ProductFilters';
 import SearchBar from '@/components/storefront/SearchBar';
 import PaginationBar from '@/components/storefront/PaginationBar';
-import { BreadcrumbJsonLd } from '@/components/storefront/JsonLd';
+import {
+  BreadcrumbJsonLd,
+  CollectionPageJsonLd,
+} from '@/components/storefront/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'პროდუქტები | შამფურმანია',
+  title:
+    'შამფურები, გრილები, ბარბექიუ აქსესუარები - ყიდვა ონლაინ | შამფურმანია',
   description:
-    'შამფურების და ბარბექიუს აქსესუარების სრული კატალოგი საუკეთესო ფასად საქართველოში.',
+    'შამფურების, გრილების და ბარბექიუ აქსესუარების სრული კატალოგი. ' +
+    'პრემიუმ შამფურის ნაკრები, უჟანგავი ფოლადის შამფურები, მწვადის აქსესუარები. ' +
+    'იდეალური საჩუქარი მამაკაცისთვის. საუკეთესო ფასები საქართველოში - შეუკვეთეთ ონლაინ.',
+  openGraph: {
+    title: 'შამფურები და გრილები - ონლაინ კატალოგი | შამფურმანია',
+    description:
+      'აღმოაჩინეთ შამფურების, გრილების და ბარბექიუ აქსესუარების ფართო არჩევანი. საჩუქარი მამაკაცისთვის საუკეთესო ფასად.',
+    url: '/products',
+  },
+  alternates: {
+    canonical: '/products',
+  },
 };
 
 export default async function ProductsPage({
@@ -45,6 +60,11 @@ export default async function ProductsPage({
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 3, md: 5 } }}>
+      <CollectionPageJsonLd
+        name="შამფურები, გრილები და ბარბექიუ აქსესუარები"
+        description="შამფურების, გრილების და ბარბექიუ აქსესუარების სრული კატალოგი. საჩუქარი მამაკაცისთვის საუკეთესო ფასად საქართველოში."
+        url="/products"
+      />
       <BreadcrumbJsonLd
         items={[
           { name: 'მთავარი', href: '/' },
@@ -52,12 +72,12 @@ export default async function ProductsPage({
         ]}
       />
 
-      <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
-        პროდუქტები
+      <Typography variant="h3" component="h1" sx={{ fontWeight: 700, mb: 1 }}>
+        შამფურები, გრილები და ბარბექიუ აქსესუარები
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
         {data.total > 0
-          ? `ნაპოვნია ${data.total} პროდუქტი`
+          ? `ნაპოვნია ${data.total} პროდუქტი - შამფურები, გრილები და აქსესუარები საუკეთესო ფასად`
           : 'პროდუქტები ვერ მოიძებნა'}
       </Typography>
 

@@ -48,6 +48,7 @@ export default function HeroSection() {
           </Typography>
           <Typography
             variant="h5"
+            component="p"
             sx={{
               mb: 4,
               fontWeight: 400,
@@ -56,8 +57,9 @@ export default function HeroSection() {
               lineHeight: 1.6,
             }}
           >
-            აღმოაჩინეთ საუკეთესო შამფურები, გრილები და ბარბექიუს აქსესუარები
-            თქვენი გარე სამზარეულოსთვის. წამყვანი ბრენდების პროდუქცია საუკეთესო ფასად.
+            აღმოაჩინეთ საუკეთესო შამფურები, გრილები და ბარბექიუ აქსესუარები
+            თქვენი გარე სამზარეულოსთვის. იდეალური საჩუქარი მამაკაცისთვის -
+            წამყვანი ბრენდების პროდუქცია საუკეთესო ფასად. მიწოდება მთელ საქართველოში.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
             <Link href="/products" style={{ textDecoration: 'none' }}>

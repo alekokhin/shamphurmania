@@ -8,11 +8,12 @@ export default function ContactSection() {
     <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'white' }}>
       <Container maxWidth="md">
         <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <Typography variant="h3" sx={{ fontWeight: 700 }}>
+          <Typography variant="h3" component="h2" sx={{ fontWeight: 700 }}>
             დაგვიკავშირდით
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
-            გაქვთ შეკითხვა? ჩვენი გუნდი მზად არის დაგეხმაროთ
+            გაქვთ შეკითხვა შამფურებზე ან გრილებზე? ჩვენი გუნდი მზად არის
+            დაგეხმაროთ იდეალური პროდუქტის შერჩევაში
           </Typography>
         </Box>
 

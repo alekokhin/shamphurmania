@@ -20,11 +20,11 @@ export default async function FeaturedProducts() {
           }}
         >
           <Box>
-            <Typography variant="h3" sx={{ fontWeight: 700 }}>
-              გამორჩეული პროდუქტები
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 700 }}>
+              გამორჩეული შამფურები და გრილები
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
-              ჩვენი საუკეთესო და ყველაზე პოპულარული გრილები
+              ჩვენი საუკეთესო და ყველაზე პოპულარული შამფურები, გრილები და აქსესუარები
             </Typography>
           </Box>
           <Link href="/products" style={{ textDecoration: 'none' }}>
